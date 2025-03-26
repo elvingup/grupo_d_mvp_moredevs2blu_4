@@ -22,7 +22,7 @@ resource "aws_subnet" "subnet-private-1c" {
 
 resource "aws_subnet" "subnet-private-1d" {
   vpc_id     = aws_vpc.elvintao-vpc.id
-  cidr_block = "172.102.1.0/24"
+  cidr_block = "172.102.2.0/24"
   availability_zone = "us-west-1d"
 
   tags = {
@@ -32,7 +32,7 @@ resource "aws_subnet" "subnet-private-1d" {
 
 resource "aws_subnet" "subnet-public-1c" {
   vpc_id     = aws_vpc.elvintao-vpc.id
-  cidr_block = "172.102.1.0/24"
+  cidr_block = "172.102.3.0/24"
   availability_zone = "us-west-1c"
 
   tags = {
@@ -42,7 +42,7 @@ resource "aws_subnet" "subnet-public-1c" {
 
 resource "aws_subnet" "subnet-public-1d" {
   vpc_id     = aws_vpc.elvintao-vpc.id
-  cidr_block = "172.102.1.0/24"
+  cidr_block = "172.102.4.0/24"
   availability_zone = "us-west-1d"
 
   tags = {
