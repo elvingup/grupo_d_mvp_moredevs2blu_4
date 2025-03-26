@@ -10,7 +10,7 @@
 *.userosscache
 *.sln.docstates
 bizz.md
-./rascunhos/
+rascunhos/
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
