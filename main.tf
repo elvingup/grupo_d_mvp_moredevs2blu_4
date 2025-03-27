@@ -70,14 +70,66 @@ resource "aws_route_table_association" "pub02assoc" {
   route_table_id = aws_route_table.route_pub.id
 }
 
-# EC2 NGINX
-resource "aws_security_group" "elvintao-sg-nginx" {
-  name        = "elvintao-sg-nginx"
-  
-  vpc_id      = aws_vpc.elvintao_vpc.id
+# RASCUNHO DO EC2 NGINX
 
+data "aws_ami" "imagem_ec2" {
+    most_recent = true
+    owners = [ "amazon" ]
+    filter {
+      name = "name"
+      values = [ "al2023-ami-2023.*-x86_64" ]
+    }
+}
+
+resource "aws_security_group" "dart_nginx_sg" {
+    vpc_id = aws_vpc.dart_vpc.id
+    name = "dart_nginx_sg"
+    tags = {
+      Name = "dart-nginx_sg"
+    }
+}
+
+resource "aws_vpc_security_group_egress_rule" "dart_egress_sg_rule" {
+  security_group_id = aws_security_group.dart_nginx_sg.id
+  cidr_ipv4   = "0.0.0.0/0"
+  ip_protocol = "-1"
+} 
+
+resource "aws_vpc_security_group_ingress_rule" "dart_ingress_80_sg_rule" {
+  security_group_id = aws_security_group.dart_nginx_sg.id
+  cidr_ipv4   = "0.0.0.0/0"
+  ip_protocol = "tcp"
+  from_port   = 80
+  to_port     = 80
+}
+resource "aws_vpc_security_group_ingress_rule" "dart_ingress_22_sg_rule" {
+  security_group_id = aws_security_group.dart_nginx_sg.id
+  cidr_ipv4   = "0.0.0.0/0"
+  ip_protocol = "tcp"
+  from_port   = 22
+  to_port     = 22
+}
+
+resource "aws_network_interface" "dart_nginx_ei" {
+  subnet_id = aws_subnet.sn_pub01.id
   tags = {
-    Name = "elvintao-sg-nginx"
+    Name = "dart_nginx_ei"
   }
 }
+
+resource "aws_instance" "dart_nginx_ec2" {
+  instance_type = "t3.micro"
+  ami = data.aws_ami.imagem_ec2.id
+  vpc_security_group_ids = [ aws_security_group.dart_nginx_sg.id ]
+  
+  network_interface {
+    network_interface_id = aws_network_interface.dart_nginx_ei
+    device_index = 0
+  }
+  associate_public_ip_address = true
+  tags = {
+    Name = "dart-nginx_ec2"
+  }
+}
+
 
