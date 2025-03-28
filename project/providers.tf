@@ -5,6 +5,8 @@ provider "aws" {
 
 terraform {
     backend "s3" {
-        bucket = "elvintao_terraform_state"
+        bucket = "${var.project_name}_terraform_state"
+        key    = "terraform.tfstate"
+        region = var.project_region
     }
 }
