@@ -7,7 +7,7 @@
 // - versioning: uma configuracao que permite manter diferentes versoes dos objetos dentro do bucket. Aqui, o versionamento esta desativado (enabled = false).
 
 resource "aws_s3_bucket" "bucket_terraform_state" {
-    bucket = "${var.project_name}_terraform_state"
+    bucket = "elvintao_terraform_state"
     acl = "private"
     force_destroy = true
     versioning {
