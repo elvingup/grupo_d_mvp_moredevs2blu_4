@@ -132,7 +132,7 @@ resource "aws_instance" "elvintao_nginx_ec2" {
   
   # Tags que serao adicionadas a instancia.
   tags = {
-    Name = "elvintao-nginx_ec2"
+    Name = "elvintao_nginx_ec2"
   }
 }
 # §§§
