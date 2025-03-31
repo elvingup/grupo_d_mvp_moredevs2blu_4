@@ -8,22 +8,22 @@ data "aws_ami" "elvintao_ami_backend_vm" {
 }
 
 resource "aws_vpc_security_group_egress_rule" "elvintao_backend_egress_sg_rule" {
-  security_group_id = aws_security_group.elvintao_nginx_sg.id
-  cidr_ipv4   = "loadbalancer_cidr_block"
+  security_group_id = "sg_loadbalancer_id"
+  cidr_ipv4   = "frontend_private_ip"
   ip_protocol = "tcp"
 }
 
 resource "aws_vpc_security_group_ingress_rule" "elvintao_backend_ingress_tcp80_sg_rule" {
   security_group_id = "sg_loadbalancer_id"
-  cidr_ipv4   = "loadbalancer_cidr_block"
+  cidr_ipv4   = "frontend_private_ip"
   ip_protocol = "tcp"
   from_port   = 80
   to_port     = 80
 }
 
 resource "aws_vpc_security_group_ingress_rule" "elvintao_backend_ingress_tcp22_sg_rule" {
-  security_group_id = aws_security_group.elvintao_nginx_sg.id
-  cidr_ipv4   = "loadbalancer_cidr_block"
+  security_group_id = "sg_loadbalancer_id"
+  cidr_ipv4   = "frontend_private_ip"
   ip_protocol = "tcp"
   from_port   = 22
   to_port     = 22
