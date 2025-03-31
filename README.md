@@ -27,6 +27,10 @@ Abaixo segue um resumo dos resources declarados nos arquivos:
   - aws_instance
   - aws_network_interface
 
+## Esquema do projeto
+
+![Esquema do projeto](./img/project_schema.png)
+
 ## Referências
 - https://github.com/elvingup/iac-modelos.git
 - https://interesting-stinger-3d2.notion.site/Modulo-7-Aula-5-Stacks-Templates-Modulos-Aninhados-Provisioner-1ba0065d4ed280a08f08ed8e0b40baa8
