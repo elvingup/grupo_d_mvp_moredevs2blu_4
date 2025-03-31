@@ -29,7 +29,7 @@ Abaixo segue um resumo dos resources declarados nos arquivos:
 
 ## Esquema do projeto
 
-![Esquema do projeto](./img/project_schema.png)
+![Esquema do projeto](./img/esquema_grafico.png)
 
 ## Referências
 - https://github.com/elvingup/iac-modelos.git
