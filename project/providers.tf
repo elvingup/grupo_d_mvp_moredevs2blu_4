@@ -6,12 +6,12 @@
 // - region: a regiao AWS onde o bucket S3 esta localizado. Eh determinada pela variavel "project_region".
 
 provider "aws" {
-    region = var.project_region
+    region = "us-west-1"
 }
 
 terraform {
     backend "s3" {
-        bucket = "${var.project_name}_terraform_state"
+        bucket = "us-west-1_terraform_state"
         key    = "terraform.tfstate"
         region = var.project_region
     }
