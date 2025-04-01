@@ -10,7 +10,7 @@ resource "aws_s3_bucket" "bucket_terraform_state" {
     bucket = "${var.project_name}-terraform-state"
     acl = "private"
     force_destroy = true
-    versioning {
+    aws_s3_bucket_versioning {
         enabled = false
     }
 }
