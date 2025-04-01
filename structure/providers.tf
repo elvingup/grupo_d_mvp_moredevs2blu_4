@@ -5,5 +5,5 @@
 // - region: define a regiao da AWS onde os recursos serao criados. Nesta configuracao, a regiao eh determinada pela variavel "project_region".
 
 provider "aws" {
-    region = "us-west-1"
+    region = var.project_region
 }

@@ -13,8 +13,8 @@
 
 module "vpc" {
     source = "./modules/vpc"
-    project_region = "us-west-1"
-    project_name = "elvintao"
+    project_region = var.project_region
+    project_name = var.project_name
 }
 
 module "loadbalancer" {
