@@ -134,5 +134,9 @@ resource "aws_instance" "elvintao_nginx_ec2" {
   tags = {
     Name = "elvintao_nginx_ec2"
   }
+
+  # lifecycle {
+  #   create_before_destroy = true
+  # }
 }
 # §§§

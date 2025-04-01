@@ -24,3 +24,7 @@ output "sg_loadbalancer_id" {
 output "loadbalancer_cidr_block" {
     value = aws_instance.elvintao_nginx_ec2.cidr_ipv4
 }
+
+output "loadbalancer_private_ip" {
+    value = aws_instance.elvintao_nginx_ec2.private_ip
+}
