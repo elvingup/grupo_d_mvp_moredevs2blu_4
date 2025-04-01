@@ -6,8 +6,8 @@
 // - force_destroy: quando configurado como "true", permite que o bucket seja destruido mesmo que haja objetos dentro dele.
 // - versioning: uma configuracao que permite manter diferentes versoes dos objetos dentro do bucket. Aqui, o versionamento esta desativado (enabled = false).
 
-resource "aws_s3_bucket" "bucket_terraform_state" {
-    bucket = "elvintao_terraform_state"
+resource "aws_s3_bucket" "bucket-terraform-state" {
+    bucket = "elvintao-terraform-state"
     acl = "private"
     force_destroy = true
     versioning {
