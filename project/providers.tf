@@ -13,6 +13,6 @@ terraform {
     backend "s3" {
         bucket = "us-west-1_terraform_state"
         key    = "terraform.tfstate"
-        region = var.project_region
+        region = "us-west-1"
     }
 }
