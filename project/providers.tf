@@ -11,8 +11,8 @@ provider "aws" {
 
 terraform {
     backend "s3" {
-        bucket = "${var.project_name}_terraform_state"
+        bucket = "elvintao-terraform-state"
         key    = "terraform.tfstate"
-        region = var.project_region
+        region = "us-west-1"
     }
 }
